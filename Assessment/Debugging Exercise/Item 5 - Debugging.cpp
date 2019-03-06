@@ -34,9 +34,11 @@ int main()
 	vector<Marine> squad;
 	vector<Zergling> swarm;
 
+	// Initial squad and swarm sizes
 	int squadSize = 10;
 	int swarmSize = 20;
 
+	// Set random value based on system time
 	srand((unsigned int)time(NULL));
 
 	// Set up the Squad and the Swarm at their initial sizes listed above
@@ -67,6 +69,7 @@ int main()
 				swarm[0].takeDamage(damage);
 				if (!swarm[0].isAlive()) // if the zergling dies, it is removed from the swarm
 				{
+					// If a zergling dies, decrease the swarm size & remove it from the vector array
 					swarmSize--;
 					cout << " ---The zergling target dies, " << swarmSize << " left---" << endl;
 					swarm.erase(swarm.begin());
@@ -75,6 +78,7 @@ int main()
 			Sleep(100);
 		}
 		
+		// Lets the user know Zerglings are attacking next and waits for user input
 		std::cout << "Marine attack complete. Commencing Zerg assault.\n";
 		system("Pause");
 
@@ -88,14 +92,17 @@ int main()
 				squad[0].takeDamage(damage);
 				if (!squad[0].isAlive()) // if the marine dies, it is removed from the swarm
 				{
+					// If a marine dies, decrease the squad size & remove it from the vector array
 					squadSize--;
 					cout << " ---The marine target dies, " << squadSize << " left---" << endl;
 					squad.erase(squad.begin());
 				}
 			}
+			// Little bit of breathing room instead of an immediate wall of text
 			Sleep(100);
 		}
 
+		// Lets the user know Marines are attacking next and waits for user input
 		std::cout << "Zergling assualt complete. Launching counterattack.\n";
 		system("Pause");
 	}

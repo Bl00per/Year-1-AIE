@@ -7,24 +7,25 @@
 
 void BubbleSort(Fighter fighterArray[], int teamSize);
 
+const int buffer_size = 50;
+
 struct fighterResultsStruct
 {
-	std::string string1;
-	std::string string2;
-	std::string string3;
-	std::string string4;
-	std::string string5;
-	std::string string6;
-	std::string string7;
-	std::string string8;
-	std::string string9;
-	std::string string10;
-	std::string string11;
-	std::string string12;
-
+	char string1[buffer_size];
+	char string2[buffer_size];
+	char string3[buffer_size];
+	char string4[buffer_size];
+	char string5[buffer_size];
+	char string6[buffer_size];
+	char string7[buffer_size];
+	char string8[buffer_size];
+	char string9[buffer_size];
+	char string10[buffer_size];
+	char string11[buffer_size];
+	char string12[buffer_size];
 };
 
-void WriteRecordToFile(fighterResultsStruct *resultsrecord);
+void WriteRecordToFile(fighterResultsStruct resultsrecord);
 void ReadRecordToConsole();
 
 int main()
@@ -33,8 +34,8 @@ int main()
 	srand((unsigned int)time(NULL));
 
 	const size_t team_size = 6;
-	Fighter team_one[team_size];
-	Fighter team_two[team_size];
+	Fighter * team_one = new Fighter[team_size];
+	Fighter * team_two = new Fighter[team_size];
 
 
 	// Assigned 'Team 1' with appropriate weapons/abilities
@@ -137,22 +138,22 @@ int main()
 				switch (hero_num)
 				{
 				case 0:
-					resultsStored.string1 = s;
+					strcpy(resultsStored.string1, s.c_str());
 					break;
 				case 1:
-					resultsStored.string2 = s;
+					strcpy(resultsStored.string2, s.c_str());
 					break;
 				case 2:
-					resultsStored.string3 = s;
+					strcpy(resultsStored.string3, s.c_str());
 					break;
 				case 3:
-					resultsStored.string4 = s;
+					strcpy(resultsStored.string4, s.c_str());
 					break;
 				case 4:
-					resultsStored.string5 = s;
+					strcpy(resultsStored.string5, s.c_str());
 					break;
 				case 5:
-					resultsStored.string6 = s;
+					strcpy(resultsStored.string7, s.c_str());
 					break;
 				default:
 					break;
@@ -171,22 +172,22 @@ int main()
 				switch (hero_num)
 				{
 				case 0:
-					resultsStored.string1 = s;
+					strcpy(resultsStored.string7, s.c_str());
 					break;
 				case 1:
-					resultsStored.string2 = s;
+					strcpy(resultsStored.string8, s.c_str());
 					break;
 				case 2:
-					resultsStored.string3 = s;
+					strcpy(resultsStored.string9, s.c_str());
 					break;
 				case 3:
-					resultsStored.string4 = s;
+					strcpy(resultsStored.string10, s.c_str());
 					break;
 				case 4:
-					resultsStored.string5 = s;
+					strcpy(resultsStored.string11, s.c_str());
 					break;
 				case 5:
-					resultsStored.string6 = s;
+					strcpy(resultsStored.string12, s.c_str());
 					break;
 				default:
 					break;
@@ -212,22 +213,22 @@ int main()
 				switch (hero_num)
 				{
 				case 0:
-					resultsStored.string7 = s;
+					strcpy(resultsStored.string1, s.c_str());
 					break;
 				case 1:
-					resultsStored.string8 = s;
+					strcpy(resultsStored.string2, s.c_str());
 					break;
 				case 2:
-					resultsStored.string9 = s;
+					strcpy(resultsStored.string3, s.c_str());
 					break;
 				case 3:
-					resultsStored.string10 = s;
+					strcpy(resultsStored.string4, s.c_str());
 					break;
 				case 4:
-					resultsStored.string11 = s;
+					strcpy(resultsStored.string5, s.c_str());
 					break;
 				case 5:
-					resultsStored.string12 = s;
+					strcpy(resultsStored.string7, s.c_str());
 					break;
 				default:
 					break;
@@ -247,22 +248,22 @@ int main()
 				switch (hero_num)
 				{
 				case 0:
-					resultsStored.string7 = s;
+					strcpy(resultsStored.string7, s.c_str());
 					break;
 				case 1:
-					resultsStored.string8 = s;
+					strcpy(resultsStored.string8, s.c_str());
 					break;
 				case 2:
-					resultsStored.string9 = s;
+					strcpy(resultsStored.string9, s.c_str());
 					break;
 				case 3:
-					resultsStored.string10 = s;
+					strcpy(resultsStored.string10, s.c_str());
 					break;
 				case 4:
-					resultsStored.string11 = s;
+					strcpy(resultsStored.string11, s.c_str());
 					break;
 				case 5:
-					resultsStored.string12 = s;
+					strcpy(resultsStored.string12, s.c_str());
 					break;
 				default:
 					break;
@@ -303,9 +304,11 @@ int main()
 			fighting = true;
 
 	}
-	WriteRecordToFile(&resultsStored);
+	WriteRecordToFile(resultsStored);
 	ReadRecordToConsole();
 
+	delete[] team_one;
+	delete[] team_two;
 
 	system("Pause");
 	return 0;
@@ -336,8 +339,8 @@ void BubbleSort(Fighter fighterArray[], int teamSize)
 	}
 }
 
-void WriteRecordToFile(fighterResultsStruct *resultsrecord) {
-	std::ofstream file("fight.dat", std::ios::in | std::ios::out | std::ios::binary);
+void WriteRecordToFile(fighterResultsStruct resultsrecord) {
+	std::ofstream file("fight.dat", std::ios::out | std::ios::binary);
 
 	if (file.good()) {
 		std::cout << "File fight.dat opened successfully\n";
@@ -353,7 +356,7 @@ void WriteRecordToFile(fighterResultsStruct *resultsrecord) {
 	}
 
 	file.seekp(0, std::ios::end);
-	file.write((char*)resultsrecord, sizeof(fighterResultsStruct));
+	file.write((char*)&resultsrecord, sizeof(fighterResultsStruct));
 
 	file.close();
 }
@@ -362,10 +365,10 @@ void ReadRecordToConsole() {
 	fighterResultsStruct readFighterRecord;
 
 	//open file from both read and write so you can seek
-	std::ifstream file("fight.dat", std::ios::in | std::ios::out | std::ios::binary);
+	std::ifstream file("fight.dat", std::ios::in | std::ios::binary);
 
 	if (file.good()) {
-		file.seekg(-1 * sizeof(fighterResultsStruct), std::ios::end);
+		//file.seekg(-1 * sizeof(fighterResultsStruct), std::ios::end);
 		file.read((char*)&readFighterRecord, sizeof(fighterResultsStruct));
 
 		std::cout << readFighterRecord.string1 << "\n";
@@ -385,6 +388,4 @@ void ReadRecordToConsole() {
 	else {
 		std::cout << "Error opening file\n";
 	}
-
-
 }
