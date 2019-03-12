@@ -12,12 +12,10 @@ int main()
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 	srand((unsigned int)time(NULL));
 
+	// Assigned teams with pointers
 	const size_t team_size = 6;
-
-	Fighter team_one[team_size];
-	Fighter team_two[team_size];
-
-
+	Fighter* team_one = new Fighter[team_size];
+	Fighter* team_two = new Fighter[team_size];
 
 	// Assigned 'Team 1' with appropriate weapons/abilities
 	team_one[0] = Fighter("Ironman", "Unibeam");
@@ -167,8 +165,10 @@ int main()
 		}
 		else
 			fighting = true;
-
 	}
+
+	delete[] team_one;
+	delete[] team_two;
 
 	return 0;
 }
