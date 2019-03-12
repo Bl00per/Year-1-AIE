@@ -15,15 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Battle Arena\Fighter.cpp">
+    <ClCompile Include="Item 4 - Binary File.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Battle Arena\Item 4 - Binary File.cpp">
+    <ClCompile Include="Fighter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Battle Arena\Fighter.h">
+    <ClInclude Include="Fighter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

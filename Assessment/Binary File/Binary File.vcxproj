@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{F4AB3997-8595-4EA1-B7A6-A1CE3E9EADCF}</ProjectGuid>
+    <ProjectGuid>{309F4DB9-1128-4578-8210-6277FBDE95B1}</ProjectGuid>
     <RootNamespace>BinaryFile</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -99,7 +99,6 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -117,11 +116,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\Battle Arena\Fighter.cpp" />
-    <ClCompile Include="..\Battle Arena\Item 4 - Binary File.cpp" />
+    <ClCompile Include="Fighter.cpp" />
+    <ClCompile Include="Item 4 - Binary File.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Battle Arena\Fighter.h" />
+    <ClInclude Include="Fighter.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
