@@ -56,7 +56,7 @@ void Fighter::take_damage(const int a_damage)
 	{
 		health = 0;
 		isDead = true;
-		std::cout << "\n---A hero has died!---\n\n";
+		std::cout << "\n--- " << name << " has died!---\n\n";
 	}
 }
 

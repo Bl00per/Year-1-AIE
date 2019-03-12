@@ -1,6 +1,7 @@
 #include "Fighter.h"
 #include <iostream>
 #include <ctime>
+#include <Windows.h>
 //#include <crtdbg.h>
 
 void BubbleSort(Fighter fighterArray[], int teamSize);
@@ -49,6 +50,9 @@ int main()
 	int team1Size = 6;
 	int team2Size = 6;
 	bool fighting = true;
+
+	std::cout << "\nPress ENTER to begin the battle!";
+	std::cin.get();
 	while (fighting)
 	{
 		int attacking = 0;
@@ -67,14 +71,16 @@ int main()
 
 			if (!team_two[attacking].isDead && team_one[index].get_health() != 0)
 			{
+				Sleep(300);
 				team_one[index].attack(team_two[attacking]);
 
 				// Wait for user input to proceed to next fight
 				std::cout << "\n";
-				system("Pause");
-				std::cout << "\n";
+				//system("Pause");
+				//std::cout << "\n";
 			}
 			
+
 			//Team 2 attacks
 			// Gives a new random number
 			if (team2Size > 0)
@@ -86,12 +92,13 @@ int main()
 
 			if (!team_one[attacking].isDead && team_one[index].get_health() != 0)
 			{
+				Sleep(300);
 				team_two[index].attack(team_one[attacking]);
 
 				// Wait for user input to proceed to next fight
 				std::cout << "\n";
-				system("Pause");
-				std::cout << "\n";
+				//system("Pause");
+				//std::cout << "\n";
 			}
 		}
 
